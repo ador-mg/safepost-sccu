@@ -10,6 +10,7 @@
 
 var SCCU = require('./lib/sccu.js');
 var http = require('http');
+var restify = require('restify');
 
 var channels = [ "ls", "dtube", "sensors", "devEvents", "transportEvents", "imgRecog", "alert" ];
 
@@ -17,30 +18,36 @@ sccu = new SCCU(channels, 'http://dev.zappdev.com/EUProjects_SafepostDemo_1_0_ad
 
 sccu.start();
 
-try{
-  // Configure our HTTP server to respond with Hello World to all requests.
-  var server = http.createServer(function (request, response) {
-    response.writeHead(200, {"Content-Type": "text/html"});
-
-    response.write("Subscribed to channels:<br/>");
-    for (var i = 0; i < sccu.channels.length; i++) {
-      response.write(sccu.channels[i] + "<br/>");
-    };
-
-    response.end("Hello World\n");
-  });
-
-  // Listen on port 8000, IP defaults to 127.0.0.1
-  var port = process.env.PORT || 3000;
-  server.listen(port);
-
-  // Put a friendly message on the terminal
-  console.log("Server running at http://127.0.0.1:" + port + "/");
+var port = process.env.PORT || 3000;
+function respond(req, res, next) {
+  res.send('hello ' + req.params.name);
+  next();
 }
-catch(er)
-{
-  console.log(er);
-}
+
+var server = restify.createServer();
+server.get('/hello/:name', respond);
+server.head('/hello/:name', respond);
+
+server.get('/channels' , function(req, res, next){
+  res.send(sccu.channels);
+  next();
+});
+
+server.get('/channels/stop' , function(req, res, next){
+  sccu.stop();
+  res.send("Done!");
+  next();
+});
+
+server.get('/channels/start' , function(req, res, next){
+  sccu.start();
+  res.send("Started!");
+  next();
+});
+
+server.listen(port, function() {
+  console.log('%s listening at %s', server.name, server.url);
+});
 
 process.on('SIGTERM', function(){
 
