@@ -1,0 +1,29 @@
+{
+  "name": "safepost-sccu",
+  "version": "0.0.1",
+  "description": "The SCCU component of Safepost",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "aeonsdk-node": "0.2.1"
+  },
+  "engines": {
+    "node": "0.12.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ador75/safepost-sccu.git"
+  },
+  "keywords": [
+    "safepost",
+    "aeon"
+  ],
+  "author": "CLMS UK LIMITED",
+  "license": "Apache",
+  "bugs": {
+    "url": "https://github.com/ador75/safepost-sccu/issues"
+  },
+  "homepage": "https://github.com/ador75/safepost-sccu"
+}

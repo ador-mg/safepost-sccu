@@ -1,0 +1,7 @@
+{
+  "name": "safepost-sccu",
+  "description": "The SCCU component of Safepost",
+  "repository": "https://github.com/ador75/safepost-sccu.git",
+  "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  "keywords": ["safepost","aeon"]
+}
