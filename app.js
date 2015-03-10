@@ -12,7 +12,9 @@ var SCCU = require('./lib/sccu.js');
 var http = require('http');
 var restify = require('restify');
 
-var channels = [ "ls", "dtube", "sensors", "devEvents", "transportEvents", "imgRecog", "alert" ];
+var channels = [ "ls" ];//, "dtube", "sensors", "devEvents", "transportEvents", "imgRecog", "alert" ];
+
+
 
 sccu = new SCCU(channels, 'http://dev.zappdev.com/EUProjects_SafepostDemo_1_0_ador_Knockout');
 
