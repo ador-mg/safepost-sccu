@@ -11,24 +11,29 @@
 var SCCU = require('./lib/sccu.js');
 var http = require('http');
 var restify = require('restify');
+var fs = require('fs');
+var nconf = require('nconf');
 
 var channels = [ "ls" ];//, "dtube", "sensors", "devEvents", "transportEvents", "imgRecog", "alert" ];
 
+// First consider commandline arguments and environment variables, respectively and then file.
+nconf.argv()
+      .env()
+      .file({ file: 'config.json' });
 
+// Provide default values for settings not provided above.
+nconf.defaults({
+    'channels': [ "ls", "dtube", "sensors", "devEvents", "transportEvents", "imgRecog", "alert" ],
+    'host' : 'dev.zappdev.com',
+    'basepath' : 'EUProjects_SafepostDemo_1_0_ador_Knockout/sccu'
+});
 
-sccu = new SCCU(channels, 'http://dev.zappdev.com/EUProjects_SafepostDemo_1_0_ador_Knockout');
-
+sccu = new SCCU(nconf.get("channels"), nconf.get("host"), nconf.get("basepath"));
 sccu.start();
 
+// HTTP Server
 var port = process.env.PORT || 3000;
-function respond(req, res, next) {
-  res.send('hello ' + req.params.name);
-  next();
-}
-
 var server = restify.createServer();
-server.get('/hello/:name', respond);
-server.head('/hello/:name', respond);
 
 server.get('/channels' , function(req, res, next){
   res.send(sccu.channels);
