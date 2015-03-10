@@ -28,7 +28,7 @@ nconf.defaults({
     'basepath' : 'EUProjects_SafepostDemo_1_0_ador_Knockout/sccu'
 });
 
-sccu = new SCCU(nconf.get("channels"), nconf.get("host"), nconf.get("basepath"));
+sccu = new SCCU(nconf.get("aeonid"), nconf.get("channels"), nconf.get("host"), nconf.get("basepath"));
 sccu.start();
 
 // HTTP Server
