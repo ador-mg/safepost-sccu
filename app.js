@@ -36,7 +36,7 @@ var port = process.env.PORT || 3000;
 var server = restify.createServer();
 
 server.get('/channels' , function(req, res, next){
-  res.send(sccu.channels);
+  res.send(sccu.activechannels);
   next();
 });
 

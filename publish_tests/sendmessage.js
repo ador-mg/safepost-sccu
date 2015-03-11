@@ -1,7 +1,7 @@
 var AeonSDK = require('aeonsdk-node');
 
 
-if(process.argv.length != 3){
+if(process.argv.length != 4){
     console.log("Use: node sendmessage.js ls|dtube|sensors|devEvents|imgRecog|transportEvents|alert <message to send>");
     return;
 }
