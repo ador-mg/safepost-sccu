@@ -56,9 +56,25 @@ server.listen(port, function() {
   console.log('%s listening at %s', server.name, server.url);
 });
 
-process.on('SIGTERM', function(){
+var readLine = require ("readline");
+if (process.platform === "win32"){
+    var rl = readLine.createInterface ({
+        input: process.stdin,
+        output: process.stdout
+    });
 
+    rl.on ("SIGINT", function (){
+        process.emit ("SIGINT");
+    });
+}
+
+process.on('SIGTERM', function(){
   console.log("Stopping...");
   sccu.stop();
+});
 
+process.on ("SIGINT", function(){
+  //graceful shutdown
+  sccu.stop();
+  process.exit ();
 });
