@@ -14,7 +14,7 @@ var restify = require('restify');
 var fs = require('fs');
 var nconf = require('nconf');
 
-var channels = [ "ls" ];//, "dtube", "sensors", "devEvents", "transportEvents", "imgRecog", "alert" ];
+var channels = [ "ls" , "dtube", "sensors", "devEvents", "transportEvents", "imgRecog", "alert" ];
 
 // First consider commandline arguments and environment variables, respectively and then file.
 nconf.argv()
@@ -25,7 +25,7 @@ nconf.argv()
 nconf.defaults({
     'channels': [ "ls", "dtube", "sensors", "devEvents", "transportEvents", "imgRecog", "alert" ],
     'host' : 'dev.zappdev.com',
-    'basepath' : 'EUProjects_SafepostDemo_1_0_ador_Knockout/sccu'
+    'basepath' : 'EUProjects_SafepostDemo_1_0_kvasileiou_Knockout/sccu'
 });
 
 sccu = new SCCU(nconf.get("aeonid"), nconf.get("channels"), nconf.get("host"), nconf.get("basepath"));

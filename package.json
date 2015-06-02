@@ -9,7 +9,9 @@
   "dependencies": {
     "aeonsdk-node": "0.2.1",
     "restify": "2.8.5",
-    "nconf" : "0.7.1"
+    "nconf" : "0.7.1",
+    "socket.io-client": "0.9.16",
+    "xmlhttprequest": "1.4.0"
   },
   "engines": {
     "node": "0.12.x"

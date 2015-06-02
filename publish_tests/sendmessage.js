@@ -15,19 +15,19 @@ console.log("sending: " + message + ", to channel: " + channel);
 
 var PUB_URL;
 if(channel == "ls")
-  PUB_URL = "http://aeon-back.herokuapp.com/publish/b3436faa-a32e-4535-ab9b-c1f1e5071920";
+  PUB_URL = "http://aeon-back.herokuapp.com/publish/fbee9395-dea7-4a20-9a02-6480f7227de7";
 else if(channel == "dtube")
-  PUB_URL = "http://aeon-back.herokuapp.com/publish/af454eef-d96a-4a13-9604-4064c2727061";
+  PUB_URL = "http://aeon-back.herokuapp.com/publish/7d4542d2-1753-40ef-b71d-f3e6f9e6edd3";
 else if(channel == "sensors")
-  PUB_URL = "http://aeon-back.herokuapp.com/publish/7f61b87e-1547-4945-bf27-8863fd5f4378";
+  PUB_URL = "http://aeon-back.herokuapp.com/publish/a6ec0c32-80ad-4172-8dd1-36e6324a76bf";
 else if(channel == "devEvents")
-  PUB_URL = "http://aeon-back.herokuapp.com/publish/76744391-dcfc-493c-a37d-bfe7b3284046";
+  PUB_URL = "http://aeon-back.herokuapp.com/publish/2ee1785a-d466-4368-b56c-ab478f2d4270";
 else if(channel == "transportEvents")
-  PUB_URL = "http://aeon-back.herokuapp.com/publish/2cfc5ae1-8c67-4096-88eb-382c07632c17";
+  PUB_URL = "http://aeon-back.herokuapp.com/publish/c5d034f0-9634-4e5e-a0ea-da09dbea99b3";
 else if(channel == "imgRecog")
-  PUB_URL = "http://aeon-back.herokuapp.com/publish/97dbc0a8-3180-458a-ac3e-c96150d6723a";
+  PUB_URL = "http://aeon-back.herokuapp.com/publish/a70768dc-d771-4c00-abed-cae0eeb9b168";
 else if(channel == "alert")
-  PUB_URL = "http://aeon-back.herokuapp.com/publish/7a48a3a9-4cad-4cea-94a1-836071db3801";
+  PUB_URL = "http://aeon-back.herokuapp.com/publish/a59fd728-992a-419f-9fa5-8cb2448ddc30";
 else{
   console.log("Unknown channel: " + channel);
   return;
@@ -35,3 +35,5 @@ else{
 
 var sdk = new AeonSDK(PUB_URL);
 sdk.publish({ message: message, datetime: current_hour });
+
+console.log("message sent");
