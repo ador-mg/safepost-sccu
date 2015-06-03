@@ -1,6 +1,6 @@
 {
 	"aeonid" : "cfcaabec6cb37b103d4cad8ff6840640",
-    "channels": [ "ls" ],
+    "channels": [ "ls", "dtube" ],
     "host" : "dev.zappdev.com",
     "basepath" : "EUProjects_SafepostDemo_1_0_kvasileiou_Knockout/sccu"
 }
