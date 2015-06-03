@@ -57,7 +57,7 @@ server.listen(port, function() {
 });
 
 var readLine = require ("readline");
-if (process.platform === "win32"){
+if (process.platform === "win32" && !process.env.IISNODE_VERSION){
     var rl = readLine.createInterface ({
         input: process.stdin,
         output: process.stdout
