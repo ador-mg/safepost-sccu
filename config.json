@@ -1,6 +1,6 @@
 {
 	"aeonid" : "cfcaabec6cb37b103d4cad8ff6840640",
-    "channels": [ "alert"],
+    "channels": [ "devEvents"],
     "host" : "dev.zappdev.com",
     "basepath" : "EUProjects_SafepostDemo_1_0_gdoslaris_Knockout/sccu"
 }
