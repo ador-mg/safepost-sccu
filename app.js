@@ -14,7 +14,7 @@ var restify = require('restify');
 var fs = require('fs');
 var nconf = require('nconf');
 
-var channels = [ "ls" , "dtube", "sensors", "devEvents", "transportEvents", "imgRecog", "alert" ];
+var channels = [ "ls" , "dtube", "sensors", "devEvents", "transportEvents", "imgRecog", "alarm" ];
 
 // First consider commandline arguments and environment variables, respectively and then file.
 nconf.argv()
@@ -23,7 +23,7 @@ nconf.argv()
 
 // Provide default values for settings not provided above.
 nconf.defaults({
-    'channels': [ "ls", "dtube", "sensors", "devEvents", "transportEvents", "imgRecog", "alert" ],
+    'channels': [ "ls", "dtube", "sensors", "devEvents", "transportEvents", "imgRecog", "alarm" ],
     'host' : 'dev.zappdev.com',
     'basepath' : 'EUProjects_SafepostDemo_1_0_kvasileiou_Knockout/sccu'
 });
